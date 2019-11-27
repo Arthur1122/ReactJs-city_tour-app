@@ -11,12 +11,19 @@ export default class TourList extends Component {
     this.setState({ showInfo: !this.state.showInfo });
   };
   render() {
-    const { img, city, name, info } = this.props.tour;
+    const { id, img, city, name, info } = this.props.tour;
+    const { removeTours } = this.props;
+
     return (
       <article className="tour">
         <div className="img-container">
           <img src={img} alt="" />
-          <span className="close-btn">
+          <span
+            className="close-btn"
+            onClick={() => {
+              removeTours(id);
+            }}
+          >
             <i className="fas fa-window-close"></i>
           </span>
         </div>
